@@ -1,0 +1,31 @@
+# Dependências do Composer
+/vendor/
+
+# Arquivos de configuração locais
+.env
+.env.local
+
+# Arquivos de log
+*.log
+
+# Diretórios de cache
+/cache/
+*.cache
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# IDEs e editores
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Outros arquivos gerados
+*.bak
+*.swp

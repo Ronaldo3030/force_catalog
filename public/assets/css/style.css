@@ -1,0 +1,38 @@
+.navbar {
+  background: linear-gradient(to right, #1a1a1a, #333333);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #e50914 !important;
+}
+
+.nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #e50914 !important;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-form .form-control {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.search-form .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #e50914;
+  box-shadow: none;
+}
+
+.search-form .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
