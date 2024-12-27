@@ -17,7 +17,7 @@
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
           <i class="bi bi-film me-2"></i>
-          CineWeb
+          Force Catalog
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
           <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4">
-          <h5 class="footer-title">Sobre o CineWeb</h5>
+          <h5 class="footer-title">Sobre o Force Catalog</h5>
           <p>Seu portal definitivo para o mundo do cinema. Encontre os melhores filmes, séries e conteúdo exclusivo.</p>
           <div class="social-icons">
             <a href="#"><i class="bi bi-facebook"></i></a>
@@ -97,7 +97,7 @@
       </div>
 
       <div class="footer-bottom text-center">
-        <p class="mb-0">&copy; 2024 CineWeb. Todos os direitos reservados.</p>
+        <p class="mb-0">&copy; 2024 Force Catalog. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
