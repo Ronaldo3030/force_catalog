@@ -15,13 +15,32 @@ class ApiController extends Controller
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPGET, true);
     $response = curl_exec($ch);
-
     if (curl_errno($ch)) {
-      echo 'Erro cURL: ' . curl_error($ch);
+      echo 'ERROR cURL: ' . curl_error($ch);
+      curl_close($ch);
+      return;
     }
     curl_close($ch);
+
     $data = json_decode($response, true);
+
+    if ($data === null) {
+      echo 'Erro ao decodificar o JSON.';
+      return;
+    }
+
+    if (!isset($data['result'])) {
+      echo 'Dados não encontrados no resultado.';
+      return;
+    }
+
+    //CRIAR ALGO PARA FILTRAR POR DATA...
+    usort($data['result'], function ($a, $b) {
+      $dateA = $a['properties']['release_date'] ?? '';
+      $dateB = $b['properties']['release_date'] ?? '';
+    });
+
     header('Content-Type: application/json');
-    echo json_encode($data);
+    echo json_encode($data['result']);
   }
 }
