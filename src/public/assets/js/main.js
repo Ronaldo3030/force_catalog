@@ -4,13 +4,15 @@ function displayMovies(movieList) {
   const container = $('#movie-container');
   const html = movieList.map((movie, index) => `
       <div class="col-md-4 fade-in" style="animation-delay: ${index * 0.1}s">
+        <a href="/movie/${movie.uid}">
           <div class="movie-card">
-              <div class="movie-rating">Episódio ${movie.properties.episode_id}</div>
-              <div class="movie-content">
-                  <h3 class="movie-title">${movie.properties.title}</h3>
-                  <p class="movie-year">${new Date(movie.properties.release_date).toLocaleDateString()}</p>
-              </div>
+            <div class="movie-rating">Episódio ${movie.properties.episode_id}</div>
+            <div class="movie-content">
+              <h3 class="movie-title">${movie.properties.title}</h3>
+              <p class="movie-year">${new Date(movie.properties.release_date).toLocaleDateString()}</p>
+            </div>
           </div>
+        </a>
       </div>
   `).join('');
   container.html(html);

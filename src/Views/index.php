@@ -6,7 +6,7 @@
       <input type="text" id="search" class="form-control" placeholder="Buscar filmes...">
     </div>
   </div>
-
+  <a href="/teste">asd</a>
   <div class="sort-buttons">
     <button class="sort-btn" id="sortByName">
       Ordenar por Nome

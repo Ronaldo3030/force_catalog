@@ -9,6 +9,10 @@ li {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main-content {
   min-height: calc(100vh - 450px);
   padding: 2rem 0;
