@@ -55,7 +55,7 @@ Force Catalog é uma aplicação web que utiliza a [API de Star Wars](https://sw
 
 1. Clone o repositório
    ```
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/Ronaldo3030/force_catalog
    cd force-catalog
    ```
 
