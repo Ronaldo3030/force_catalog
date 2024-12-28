@@ -8,7 +8,10 @@ class Router
 
     private function addRoute($route, $controller, $action, $method)
     {
-        $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
+        $routeRegex = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([a-zA-Z0-9_-]+)', $route);
+        $routeRegex = '#^' . $routeRegex . '$#';
+
+        $this->routes[$method][$routeRegex] = ['controller' => $controller, 'action' => $action];
     }
 
     public function get($route, $controller, $action)
@@ -26,14 +29,19 @@ class Router
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if (array_key_exists($uri, $this->routes[$method])) {
-            $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
+        foreach ($this->routes[$method] as $routeRegex => $action) {
+            if (preg_match($routeRegex, $uri, $matches)) {
+                array_shift($matches);
 
-            $controller = new $controller();
-            $controller->$action();
-        } else {
-            throw new \Exception("No route found for URI: $uri");
+                $controller = $action['controller'];
+                $method = $action['action'];
+
+                $controller = new $controller();
+
+                return call_user_func_array([$controller, $method], $matches);
+            }
         }
+
+        throw new \Exception("No route found for URI: $uri");
     }
 }
