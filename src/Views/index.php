@@ -6,7 +6,7 @@
       <input type="text" id="search" class="form-control" placeholder="Buscar filmes...">
     </div>
   </div>
-  <a href="/teste">asd</a>
+
   <div class="sort-buttons">
     <button class="sort-btn" id="sortByName">
       Ordenar por Nome
@@ -20,5 +20,16 @@
     </button>
   </div>
 
-  <div id="movie-container" class="row g-4"></div>
+  <div id="movie-container" class="row g-4">
+    <div class="w-100 h-100 d-flex justify-content-center my-5 flex-column">
+      <p class="text-center w-100 mb-2">Carregando...</p>
+      <div class="w-100 h-100 d-flex justify-content-center gap-2">
+        <span class="point"></span>
+        <span class="point"></span>
+        <span class="point"></span>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script src="/public/assets/js/home.js"></script>
