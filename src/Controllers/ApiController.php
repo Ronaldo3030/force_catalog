@@ -2,13 +2,24 @@
 
 namespace App\Controllers;
 
+use App\Models\LogModel;
+use App\Config\Database;
 use App\Controller;
 use DateTime;
 
 class ApiController extends Controller
 {
+  private $logModel;
+
+  public function __construct()
+  {
+    $db = Database::connect();
+    $this->logModel = new LogModel($db);
+  }
+
   public function fetchDataFilm()
   {
+    $this->logModel->saveLog($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
     $apiUrl = "https://www.swapi.tech/api/films";
 
     $ch = curl_init();
@@ -34,6 +45,9 @@ class ApiController extends Controller
       echo 'Dados não encontrados no resultado.';
       return;
     }
+
+    echo "CHEGOU";
+    exit;
 
     //CRIAR ALGO PARA FILTRAR POR DATA...
     usort($data['result'], function ($a, $b) {
