@@ -132,6 +132,10 @@
     margin-top: 2rem;
   }
 
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
   .character-item {
     background: white;
     padding: 1.5rem;
@@ -162,8 +166,8 @@
 
 <section class="hero-section">
   <div class="container hero-content">
-    <h1 class="display-4 fw-bold mb-4" id="movie-title">Revenge of the Sith</h1>
-    <div class="badge bg-light text-primary fs-5 px-3 py-2" id="movie-ep">Episódio 3</div>
+    <h1 class="display-4 fw-bold mb-4" id="movie-title"></h1>
+    <div class="badge bg-light text-primary fs-5 px-3 py-2" id="movie-ep"></div>
   </div>
 </section>
 
@@ -172,46 +176,46 @@
     <h2 class="section-title">Informações do Filme</h2>
     <div class="row">
       <div class="col-md-6">
-        <div class="info-item">
+        <div class="info-item skeleton">
           <span class="info-icon">
             <i class="bi bi-calendar-event"></i>
           </span>
           <div>
             <strong>Data de Lançamento</strong>
-            <p class="mb-0" id="movie-date">19/05/2005</p>
+            <p class="mb-0" id="movie-date"></p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="info-item">
+        <div class="info-item skeleton">
           <span class="info-icon">
             <i class="bi bi-camera-reels"></i>
           </span>
           <div>
             <strong>Diretor</strong>
-            <p class="mb-0" id="movie-director">George Lucas</p>
+            <p class="mb-0" id="movie-director"></p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="info-item">
+        <div class="info-item skeleton">
           <span class="info-icon">
             <i class="bi bi-person-circle"></i>
           </span>
           <div>
             <strong>Produtor</strong>
-            <p class="mb-0" id="movie-productor">Rick McCallum</p>
+            <p class="mb-0" id="movie-productor"></p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="info-item">
+        <div class="info-item skeleton">
           <span class="info-icon">
             <i class="bi bi-clock"></i>
           </span>
           <div>
             <strong>Idade do Filme</strong>
-            <p class="mb-0" id="movie-age">3 anos 6 meses e 12 dias</p>
+            <p class="mb-0" id="movie-age"></p>
           </div>
         </div>
       </div>
@@ -224,7 +228,7 @@
   <div class="container">
     <h2 class="section-title">Sinopse</h2>
     <div class="synopsis">
-      <p id="movie-sinopse">War! The Republic is crumbling under attacks by the ruthless Sith Lord, Count Dooku. There are heroes on both sides. Evil is everywhere.</p>
+      <p id="movie-sinopse"></p>
     </div>
     <span class="read-more">
       Ler mais
@@ -233,34 +237,17 @@
   </div>
 </section>
 
-<!-- Characters Section -->
 <section class="characters-section">
   <div class="container">
     <h2 class="section-title">Personagens</h2>
     <div class="character-grid" id="movie-container-characters">
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 1</h5>
-      </div>
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 2</h5>
-      </div>
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 3</h5>
-      </div>
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 4</h5>
-      </div>
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 5</h5>
-      </div>
-      <div class="character-item">
-        <i class="fas fa-user mb-3" style="font-size: 2rem;"></i>
-        <h5>Personagem 6</h5>
+      <div id="itemcard" class="w-100 d-grid justify-content-center my-5 flex-column full-width">
+        <p class="text-center w-100 mb-2">Carregando...</p>
+        <div class="w-100 d-flex justify-content-center gap-2">
+          <span class="point"></span>
+          <span class="point"></span>
+          <span class="point"></span>
+        </div>
       </div>
     </div>
   </div>

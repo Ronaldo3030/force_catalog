@@ -51,8 +51,12 @@ class MovieDetails {
     try {
       const movieId = MovieDetails.getUrlParameter('id');
       const response = await $.get(`${API_URL}/films/${movieId}`);
-      
+
       this.updateMovieInfo(response);
+      const skeleton = $(".skeleton")
+      for (const item of skeleton) {
+        $(item).removeClass("skeleton");
+      }
       await this.displayCharacters(response.properties.characters);
     } catch (error) {
       console.error('Error fetching movie details:', error);
