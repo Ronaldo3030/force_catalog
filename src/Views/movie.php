@@ -166,7 +166,12 @@
 
 <section class="hero-section">
   <div class="container hero-content">
-    <h1 class="display-4 fw-bold mb-4" id="movie-title"></h1>
+    <a href="/" id="back-button mb-5" class="btn-back">
+      <i class="bi bi-arrow-left"></i>
+      Voltar
+    </a>
+
+    <h1 class="display-4 fw-bold my-4" id="movie-title"></h1>
     <div class="badge bg-light text-primary fs-5 px-3 py-2" id="movie-ep"></div>
   </div>
 </section>
@@ -223,7 +228,6 @@
   </div>
 </section>
 
-<!-- Synopsis Section -->
 <section class="synopsis-section">
   <div class="container">
     <h2 class="section-title">Sinopse</h2>
