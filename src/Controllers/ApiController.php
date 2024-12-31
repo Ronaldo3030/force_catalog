@@ -3,10 +3,11 @@
 namespace App\Controllers;
 
 use App\Controller;
+use DateTime;
 
 class ApiController extends Controller
 {
-  public function fetchData()
+  public function fetchDataFilm()
   {
     $apiUrl = "https://www.swapi.tech/api/films";
 
@@ -42,5 +43,90 @@ class ApiController extends Controller
 
     header('Content-Type: application/json');
     echo json_encode($data['result']);
+  }
+
+  public function fetchDataIdFilm($id)
+  {
+    if (!isset($id) || !intval($id)) {
+      echo "ID inválido ou não fornecido.";
+      exit;
+    }
+
+    $apiUrl = "https://www.swapi.tech/api/films/{$id}";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPGET, true);
+    $response = curl_exec($ch);
+    if (curl_errno($ch)) {
+      echo 'ERROR cURL: ' . curl_error($ch);
+      curl_close($ch);
+      return;
+    }
+    curl_close($ch);
+
+    $data = json_decode($response, true);
+
+    if ($data === null) {
+      echo 'Erro ao decodificar o JSON.';
+      return;
+    }
+
+    if (!isset($data['result'])) {
+      echo 'Dados não encontrados no resultado.';
+      return;
+    }
+
+    $movieDate = new DateTime($data['result']['properties']['release_date']);
+    $currentDate = new DateTime();
+    $difference = $movieDate->diff($currentDate);
+    $age = [
+      'years' => $difference->y,
+      'months' => $difference->m,
+      'days' => $difference->d
+    ];
+
+    $data['result']['properties']['age'] = $age;
+
+    header('Content-Type: application/json');
+    echo json_encode($data['result']);
+  }
+
+  public function fetchDataIdCharacters($id)
+  {
+    if (!isset($id) || !intval($id)) {
+      echo "ID inválido ou não fornecido.";
+      exit;
+    }
+
+    $apiUrl = "https://www.swapi.tech/api/people/{$id}";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPGET, true);
+    $response = curl_exec($ch);
+    if (curl_errno($ch)) {
+      echo 'ERROR cURL: ' . curl_error($ch);
+      curl_close($ch);
+      return;
+    }
+    curl_close($ch);
+
+    $data = json_decode($response, true);
+
+    if ($data === null) {
+      echo 'Erro ao decodificar o JSON.';
+      return;
+    }
+
+    if (!isset($data['result'])) {
+      echo 'Dados não encontrados no resultado.';
+      return;
+    }
+
+    header('Content-Type: application/json');
+    return json_encode($data['result']);
   }
 }

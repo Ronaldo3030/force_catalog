@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         $this->render('index', ['title' => 'Página Inicial']);
     }
+
+    public function movie()
+    {
+        $this->render('movie', ['title' => 'Movie']);
+    }
 }

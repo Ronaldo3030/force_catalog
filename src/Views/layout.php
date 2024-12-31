@@ -16,6 +16,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/public/assets/js/script.js"></script>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark py-3">
       <div class="container">

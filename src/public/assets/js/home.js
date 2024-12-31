@@ -1,10 +1,10 @@
-const apiUrl = "https://www.swapi.tech/api/";
+const apiUrl = "http://localhost:8000/api";
 
 function displayMovies(movieList) {
   const container = $('#movie-container');
   const html = movieList.map((movie, index) => `
       <div class="col-md-4 fade-in" style="animation-delay: ${index * 0.1}s">
-        <a href="/movie/${movie.uid}">
+        <a href="/movie?id=${movie.uid}">
           <div class="movie-card">
             <div class="movie-rating">Episódio ${movie.properties.episode_id}</div>
             <div class="movie-content">
@@ -23,8 +23,7 @@ $(document).ready(function () {
     url: `${apiUrl}/films`,
     method: 'GET',
     success: function (response) {
-      const movies = response.result;
-      console.log(movies);
+      const movies = response;
       displayMovies(movies);
 
       // Inicializar filtros sem ícones visíveis
@@ -64,27 +63,6 @@ $(document).ready(function () {
           displayMovies(sortedMovies); // Mostra os filmes ordenados
         }
       });
-
-
-
-
-      // $('#sortByName').on('click', function () {
-      //   const isAscending = $('#name-up').toggleClass("d-none").hasClass("d-none");
-      //   $('#name-down').toggleClass("d-none");
-
-      //   const sortedMovies = [...movies].sort((a, b) =>
-      //     isAscending
-      //       ? b.properties.title.localeCompare(a.properties.title)
-      //       : a.properties.title.localeCompare(b.properties.title)
-      //   );
-
-      //   displayMovies(sortedMovies);
-      // });
-
-      // $('#sortByDate').on('click', function () {
-      //   const sortedMovies = [...movies].sort((a, b) => new Date(a.properties.release_date) - new Date(b.properties.release_date));
-      //   displayMovies(sortedMovies);
-      // });
 
       $('#search').on('input', function () {
         const searchTerm = $(this).val().toLowerCase();
